@@ -1,19 +1,24 @@
 import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { Appbar, Title } from "react-native-paper";
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Routes } from "../navigation/Routes";
 
 export const TermsScreen = () => {
-  function goBack() {
-    // We need to use the screen props `{navigation}` to navigate back
-    // it will be introduced in the next lesson `react-navigation`
-    alert("goBack pressed!");
-  }
+
+  const navigation = useNavigation()
+
+  const handleLogin =()=> {
+
+    navigation.navigate(Routes.LOGIN_SCREEN)
+    
+  };
 
   return (
     <ScrollView>
       <View>
         <Appbar.Header>
-          <Appbar.BackAction onPress={goBack} />
+          <Appbar.BackAction onPress={handleLogin} />
           <Appbar.Content title="Terms and Conditions" />
         </Appbar.Header>
         <View style={{ padding: 32 }}>

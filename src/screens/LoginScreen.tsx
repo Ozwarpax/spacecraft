@@ -1,15 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, Touchable, View } from "react-native";
+import { StyleSheet, Text, Touchable, TouchableOpacity, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 
 import { Header } from "../components/Header";
 import InputEmail from "../components/TextInputEmail";
 import Input from "../components/TextInputEmail";
 import InputPassword from "../components/TextInputPassword";
-import Login from "../components/Button";
+import Login from "../components/LoginButton";
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Routes } from "../navigation/Routes";
 
 export default function App() {
+
+  const navigation = useNavigation()
+
+  const handleTerms =()=> {
+
+    navigation.navigate(Routes.TERMS_SCREEN)
+    
+  };
   return (
     <View style={styles.container}>
       {/* <View>
@@ -19,7 +29,11 @@ export default function App() {
       <InputEmail />
       <InputPassword />
       <Login />
+      <TouchableOpacity onPress={handleTerms}>
 
+      <Text style={styles.terms} > Read condition and tearms</Text>
+      </TouchableOpacity>
+      
       {/*
       <View>
       <TextInput style={styles.email} label={'Email'}></TextInput>
@@ -56,6 +70,7 @@ const styles = StyleSheet.create({
   },
   terms: {
     justifyContent: "center",
+    padding:10,
     textAlign: "center",
     color: "grey",
   },
