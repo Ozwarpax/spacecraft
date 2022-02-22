@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { TextInput } from 'react-native-paper';
+import * as React from "react";
+import { TextInput } from "react-native-paper";
 
 const InputPassword = () => {
   const [text, setText] = React.useState("");
@@ -9,7 +9,7 @@ const InputPassword = () => {
       label="Password"
       secureTextEntry={true}
       value={text}
-      onChangeText={text => setText(text)}
+      onChangeText={(text) => setText(text)}
     />
   );
 };

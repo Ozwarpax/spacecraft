@@ -1,6 +1,13 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, StatusBar, View, FlatList } from "react-native";
-import { TextInput } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  StatusBar,
+  View,
+  FlatList,
+  TextInput,
+} from "react-native";
 import { Title } from "react-native-paper";
 
 import { default as data } from "../../api/data.json";
@@ -18,14 +25,8 @@ import { useStarships } from "../hook/UseStarship";
 //     </View>
 //   );
 
-  
-
-  
-
 export const StarshipFeedScreen = () => {
-
-
-  const { isLoading, isError,data} = useStarships();
+  const { isLoading, isError, data } = useStarships();
 
   if (isLoading) {
     return <LoadingBox />;
@@ -33,24 +34,20 @@ export const StarshipFeedScreen = () => {
   if (isError) {
     return <ErrorBox />;
   }
-  const  datas = data.results;
+  const datas = data.results;
   // console.log(datas.name);
 
-  const renderItem =({item}:any)=>(
-    
-    <CardItem {...item}/>
- 
-  );
-  
+  const renderItem = ({ item }: any) => <CardItem {...item} />;
 
   return (
     <SafeAreaView style={styles.safeContainer}>
       <Title style={styles.titre}>Starships</Title>
 
-        <FlatList
+      <FlatList
         data={datas}
         renderItem={renderItem}
-        keyExtractor={item => item.name}/>
+        keyExtractor={(item) => item.name}
+      />
       {/* <View style={styles.container}>
         <Text>{JSON.stringify(data.results[0].name)}</Text>
 
@@ -62,21 +59,21 @@ export const StarshipFeedScreen = () => {
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
-    backgroundColor:'lightgrey',
+    backgroundColor: "lightgrey",
     marginTop: StatusBar.currentHeight || 0,
   },
   container: {
     paddingHorizontal: 20,
     marginTop: 20,
   },
-  card:{
-    backgroundColor:'white',
-    width:200,
-    height:50,
+  card: {
+    backgroundColor: "white",
+    width: 200,
+    height: 50,
   },
-  titre:{
-    paddingTop:40,
-    margin:20,
-    fontSize:40,
-  }
+  titre: {
+    paddingTop: 40,
+    margin: 20,
+    fontSize: 40,
+  },
 });

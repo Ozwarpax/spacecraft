@@ -1,19 +1,15 @@
 // ./src/components/Header.tsx
 import { Headline, Text } from "react-native-paper";
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
 import React from "react";
 
-export const Header = (props : any) => {
-
-    
+export const Header = (props: any) => {
   return (
     <View style={styles.container}>
-      <Headline style={styles.header}>
-        {props.title}
-      </Headline>
+      <Headline style={styles.header}>{props.title}</Headline>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +20,7 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     textAlign: "center",
     marginBottom: 12,
-    backgroundColor:'aqua',
-    padding:100,
+    backgroundColor: "aqua",
+    padding: 100,
   },
 });

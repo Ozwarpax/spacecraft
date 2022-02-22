@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { TextInput } from 'react-native-paper';
+import * as React from "react";
+import { TextInput } from "react-native-paper";
 
 const InputEmail = () => {
   const [text, setText] = React.useState("");
@@ -8,7 +8,7 @@ const InputEmail = () => {
     <TextInput
       label="Email"
       value={text}
-      onChangeText={text => setText(text)}
+      onChangeText={(text) => setText(text)}
     />
   );
 };
